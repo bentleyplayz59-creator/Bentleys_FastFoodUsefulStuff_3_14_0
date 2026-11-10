@@ -34,7 +34,7 @@ namespace BentleyPlayz.FastFoodUsefulStuff.Kiosk
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             // Only act when the player is free to move (no menu, event or cutscene).
-            if (!Context.IsWorldReady || !Context.IsPlayerFree || !e.Button.IsActionButton())
+            if (!(e.Button.IsActionButton() || e.Button == SButton.MouseLeft) || !Context.IsWorldReady || !Context.IsPlayerFree)
                 return;
 
             GameLocation location = Game1.currentLocation;
@@ -43,7 +43,11 @@ namespace BentleyPlayz.FastFoodUsefulStuff.Kiosk
 
             Vector2 tile = e.Cursor.GrabTile;
             if (!location.Objects.TryGetValue(tile, out StardewValley.Object obj) || obj == null || obj.QualifiedItemId != KioskQualifiedId)
-                return;
+            {
+                tile = e.Cursor.Tile;
+                if (!location.Objects.TryGetValue(tile, out obj) || obj == null || obj.QualifiedItemId != KioskQualifiedId)
+                    return;
+            }
 
             if (Vector2.Distance(Game1.player.Tile, tile) > MaxReachTiles)
                 return;
