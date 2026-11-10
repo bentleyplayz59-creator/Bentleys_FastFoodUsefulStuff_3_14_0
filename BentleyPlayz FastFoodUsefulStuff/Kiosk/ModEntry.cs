@@ -142,10 +142,10 @@ namespace BentleyPlayz.FastFoodUsefulStuff.Kiosk
             this.SetPrices(menu, originalPrices, discounted: true);
             Game1.addHUDMessage(new HUDMessage($"Kiosk deal: 10% off, {left} left today.", HUDMessage.newQuest_type));
 
-            Func<ISalable, Farmer, int, bool> previous = menu.onPurchase;
-            menu.onPurchase = (item, farmer, count) =>
+            ShopMenu.OnPurchaseDelegate previous = menu.onPurchase;
+            menu.onPurchase = (item, farmer, count, stockInfo) =>
             {
-                bool result = previous != null && previous(item, farmer, count);
+                bool result = previous != null && previous(item, farmer, count, stockInfo);
                 try
                 {
                     if (item != null && originalPrices.TryGetValue(item, out int original))
