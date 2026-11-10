@@ -1,0 +1,9 @@
+{
+  "Name": "Bentley's Fast Food (kiosk part)",
+  "Author": "Bentley Playz",
+  "Version": "3.14.0",
+  "Description": "Kiosk part of Bentley Playz Fast Food & Useful Stuff: right-click the placed Bentley's Restaurant Kiosk to order from the Food Shop or Dessert Shop, with three 10%-off deals a day. Ships inside the same mod folder as the Content and Code parts.",
+  "UniqueID": "BentleyPlayz.FastFoodUsefulStuff.Kiosk",
+  "EntryDll": "BentleyPlayz.FastFoodUsefulStuff.Kiosk.dll",
+  "MinimumApiVersion": "4.1.10"
+}

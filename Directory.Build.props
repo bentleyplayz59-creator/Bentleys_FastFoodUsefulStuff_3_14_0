@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <!-- Official ModBuildConfig settings: no auto-deploy to a game Mods folder, and the release
+         ZIP goes to _releases so the official upload-release-artifacts action can find it. -->
+    <EnableModDeploy>false</EnableModDeploy>
+    <EnableModZip>true</EnableModZip>
+    <ModZipPath>$(MSBuildThisFileDirectory)_releases</ModZipPath>
+  </PropertyGroup>
+</Project>

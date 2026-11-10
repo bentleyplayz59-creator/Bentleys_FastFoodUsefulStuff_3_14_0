@@ -1,0 +1,61 @@
+{
+  "Changes": [
+    {
+      "LogName": "Load Restaurant Kiosk texture",
+      "Action": "Load",
+      "Target": "Mods/{{ModId}}/Kiosk",
+      "FromFile": "assets/kiosk.png"
+    },
+    {
+      "LogName": "Add Bentley's Restaurant Kiosk (placeable big craftable, indoors and outdoors)",
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "Entries": {
+        "{{ModId}}_RestaurantKiosk": {
+          "Name": "{{ModId}}_RestaurantKiosk",
+          "DisplayName": "Bentley's Restaurant Kiosk",
+          "Description": "An ordering kiosk from Bentley's. Right-click it to order from the Food Shop or the Dessert Shop. Three kiosk-only deals a day: 10% off.",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedOutdoors": true,
+          "CanBePlacedIndoors": true,
+          "IsLamp": false,
+          "Texture": "Mods/{{ModId}}/Kiosk",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "LogName": "Add Restaurant Kiosk crafting recipe (learned at 2 hearts with Bentley)",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Entries": {
+        "{{ModId}}_RestaurantKiosk": "388 50 335 5 338 3/Home/{{ModId}}_RestaurantKiosk true/null/Bentley's Restaurant Kiosk"
+      }
+    },
+    {
+      "LogName": "Letter from Bentley about the kiosk",
+      "Action": "EditData",
+      "Target": "Data/Mail",
+      "Entries": {
+        "{{ModId}}_KioskLetter": "Dear @,^You have been a good friend to the restaurant, so I wanted you to be the first to hear: I built an ordering kiosk.^It lets you order from both the Food Shop and the Dessert Shop without coming to the counter. Place it anywhere you like, right-click it, and choose Desserts or Food.^As a thank-you, each day the kiosk gives you three deals of 10% off.^You can craft it now. I put the recipe in your crafting menu: 50 Wood, 5 Iron Bars and 3 Refined Quartz.^^Sincerely,^   -Bentley^Owner, Bentley's Fast Food[#]A new kiosk"
+      }
+    },
+    {
+      "LogName": "At 2 hearts with Bentley: teach the kiosk recipe and send the letter, once",
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "{{ModId}}_KioskUnlock": {
+          "Id": "{{ModId}}_KioskUnlock",
+          "Trigger": "DayStarted",
+          "Condition": "PLAYER_FRIENDSHIP_POINTS Current {{ModId}}_Bentley 500, !PLAYER_HAS_MAIL Current {{ModId}}_KioskLetter Any",
+          "Actions": [
+            "MarkCraftingRecipeKnown Current {{ModId}}_RestaurantKiosk",
+            "AddMail Current {{ModId}}_KioskLetter Tomorrow"
+          ]
+        }
+      }
+    }
+  ]
+}

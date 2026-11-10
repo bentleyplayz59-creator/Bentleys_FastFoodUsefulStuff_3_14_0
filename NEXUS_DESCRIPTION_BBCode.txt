@@ -1,0 +1,138 @@
+[center][size=6][b][color=#ff9933]Bentley Playz[/color] [color=#ffcc33]Fast Food & Useful Stuff[/color][/b][/size]
+[i][color=#cccccc]A walk-in restaurant, a new NPC, new food, desserts and an arcade, on the Bus Stop[/color][/i]
+
+[size=6][b][color=#ff0000]WARNING: DO NOT DRINK WINDEX![/color][/b][/size]
+[size=4][b][color=#ff0000]Windex is a fictional joke item in this mod. Real glass cleaner is poisonous. Never drink it.[/color][/b][/size][/center]
+
+[line]
+
+[size=5][b][color=#ff9933]Description[/color][/b][/size]
+
+Bentley Playz Fast Food & Useful Stuff adds [b]Bentley's Fast Food[/b], a full walk-in restaurant on the Bus Stop lawn, run by [b][color=#ffcc33]Bentley[/color][/b], a brand-new villager. Order at the counter, sit down at a booth, play the arcade, grab a dessert, and visit his bedroom behind the kitchen.
+
+Made for Nick. A Content Patcher pack plus a small SMAPI code part, both in one folder.
+
+[line]
+
+[size=5][b][color=#ff9933]What it adds[/color][/b][/size]
+
+[list]
+[*][b][color=#ffcc33]Bentley's Fast Food[/color][/b]: a walk-in restaurant standing on the Bus Stop lawn, with its own interior and an ordering counter. No building step. A dirt path leads from the front door down to the road. It also appears on the Ice Festival version of the Bus Stop.[/*]
+[*][b][color=#ffcc33]Bentley[/color][/b]: a new NPC who owns the restaurant. He has portraits and sprites, a winter outfit, and a hazmat suit for green rain. His birthday is Spring 12.[/*]
+[*][b][color=#ffcc33]Restaurant Robot[/color][/b]: a friendly townsperson who works the counter when Bentley is away. You can chat with him, but he can't be given gifts and has no hearts.[/*]
+[*][b][color=#ffcc33]Food and drink items[/color][/b]: Cheeseburger, French Fries, Coke, Farmhand Snack Pack, Chicken Nuggets, Milkshake, and Windex (a joke item, [color=#ff0000][b]do not drink real Windex[/b][/color]).[/*]
+[*][b][color=#ffcc33]Dessert Corner[/color][/b]: a pink-and-cream room on the left side of the restaurant, with a kiosk counter, an awning and an ORDER HERE menu board. It sells 7 desserts: Ice Cream Sundae, Soft Serve Cone, Fudge Brownie, Strawberry Cheesecake, Glazed Donut, Banana Split and the Windex Swirl Cone (vanilla with a blue swirl; it hurts). Some desserts give a small buff. Stand on the floor mat and use the counter to order.[/*]
+[*][b][color=#ffcc33]Arcade room[/color][/b]: a corner on the right side of the dining room with [b]Journey of the Prairie King[/b] and [b]Junimo Kart[/b], using the original Stardew minigames.[/*]
+[*][b][color=#ffcc33]Seating[/color][/b]: sit on every chair and booth in the restaurant, including the pink Dessert Corner chairs.[/*]
+[*][b][color=#ffcc33]Bentley's Bedroom[/color][/b]: a private room behind the kitchen, through the staff door. Stand in front of the door and tap, click or press the action button to go in. The door is open to everyone. Bentley sleeps in the double bed.[/*]
+[*][b][color=#ffcc33]Open 24 hours, every day[/color][/b]: the front door and the counter shop never close.[/*]
+[*][b][color=#ffcc33]Welcome letter[/color][/b] from Bentley the first day you load a save with the mod.[/*]
+[*][b][color=#ffcc33]Update notes window[/color][/b]: every update shows its notes once after you load your save.[/*]
+[/list]
+[line]
+
+[size=5][b][color=#ff9933]How it works[/color][/b][/size]
+
+[list]
+[*]Bentley starts work at the counter at 6:10 AM. At 6 PM he walks to Gus's Stardrop Saloon, and at 9 PM he walks home and goes to bed. He sleeps until 6:10 AM.[/*]
+[*]While Bentley is away (from 6 PM on), the Restaurant Robot works the counter. The shop switches to his portrait and greeting.[/*]
+[*]The restaurant is open day and night. Walk up to the door and tap it (mobile), press the action button, or click it.[/*]
+[*]Counter prices: [color=#66cc66][b]Cheeseburger 180g[/b][/color], [color=#66cc66][b]French Fries 90g[/b][/color], [color=#66cc66][b]Chicken Nuggets 140g[/b][/color], [color=#66cc66][b]Milkshake 180g[/b][/color], [color=#66cc66][b]Coke 100g[/b][/color], [color=#66cc66][b]Windex 25g[/b][/color], [color=#66cc66][b]Farmhand Snack Pack 220g[/b][/color].[/*]
+[*]Dessert prices: [color=#66cc66][b]Ice Cream Sundae 200g[/b][/color], [color=#66cc66][b]Soft Serve Cone 140g[/b][/color], [color=#66cc66][b]Fudge Brownie 160g[/b][/color], [color=#66cc66][b]Strawberry Cheesecake 220g[/b][/color], [color=#66cc66][b]Glazed Donut 120g[/b][/color], [color=#66cc66][b]Banana Split 260g[/b][/color], [color=#66cc66][b]Windex Swirl Cone 60g[/b][/color].[/*]
+[*]Gus's Saloon also sells the Cheeseburger, French Fries, Coke, Windex and Farmhand Snack Pack.[/*]
+[*]The Milkshake is also sold at the counter, and Bentley teaches you to cook it yourself at [color=#ff6699][b]4 hearts[/b][/color].[/*]
+[*]Drinking Windex, or eating the Windex Swirl Cone, takes 10 health by default. It never takes you below 1. You can change each amount in the Code folder's [b]config.json[/b] ([b]WindexDrinkDamage[/b] and [b]WindexSwirlConeDamage[/b], set either to 0 for none).[/*]
+[/list]
+[line]
+
+[size=5][b][color=#ff9933]Requirements[/color][/b][/size]
+
+[list]
+[*]Stardew Valley [b]1.6.15[/b] (other 1.6.x versions untested)[/*]
+[*]SMAPI [b]4.1.10[/b] or newer[/*]
+[*]Content Patcher [b]2.6.0[/b] or newer[/*]
+[/list]
+No other framework is needed.
+
+[b]Compatibility:[/b] the restaurant now stands on the Bus Stop lawn. It should be compatible with Stardew Valley Expanded, but it has [b]not been tested[/b] with Stardew Valley Expanded. Any mod that edits the Bus Stop area may conflict with this mod.
+
+[line]
+
+[size=5][b][color=#ff9933]Installation[/color][/b][/size]
+
+[list=1]
+[*]Install SMAPI and Content Patcher.[/*]
+[*]Delete any older copy of this mod first, including the old [b]BentleyPlayz_FastFoodUsefulStuff[/b] and [b]BentleyPlayz_FastFoodUsefulStuff_SMAPI[/b] folders. All versions use the same mod ID, and your saves keep working.[/*]
+[*]Extract the ZIP so that the folder [b]BentleyPlayz FastFoodUsefulStuff[/b] sits directly inside your [b]Mods[/b] folder. It holds both the [b]Content[/b] and [b]Code[/b] parts.[/*]
+[*]Launch the game with SMAPI.[/*]
+[/list]
+[color=#ffcc33][b]Updating from older versions:[/b][/color]
+[list]
+[*]The restaurant used to stand on your Farm (before 3.0.0) and later in Cindersap Forest. It is now on the Bus Stop, and there is no building step. If you still have the old Farm building, demolish it first.[/*]
+[*]Before updating, save while standing [b]outside[/b] the restaurant. A save made inside could put you in the wrong spot, because the interior layout has changed over time.[/*]
+[*]Furniture was removed in 3.13.0 (the Furniture Corner became the Dessert Corner). If you bought any furniture from the old ATM, it will show as an error item. Remove it or ignore it.[/*]
+[*]Bushes, weeds and twigs already in an existing save stay on the Bus Stop lawn until you remove them by hand.[/*]
+[/list]
+[line]
+
+[size=5][b][color=#ff9933]Latest changes[/color][/b][/size]
+
+[color=#66ccff][b]3.13.21[/b][/color]
+[list]
+[*]Changed: Bentley's evening spot in the Saloon moved to a new tile so he no longer overlaps Shane.[/*]
+[/list]
+[color=#66ccff][b]3.13.20[/b][/color]
+[list]
+[*]Fixed: removed the dark shadow baked into the bed art below the footboard in Bentley's bedroom.[/*]
+[/list]
+[color=#66ccff][b]3.13.19[/b][/color]
+[list]
+[*]Fixed: the bed's footboard no longer hides you when you stand just below it.[/*]
+[/list]
+[color=#66ccff][b]3.13.14 to 3.13.18[/b][/color]
+[list]
+[*]Bentley's bedroom now has a double bed. The bed is solid except for the middle mattress row.[/*]
+[*]Bentley now sleeps in the middle of the bed. He goes home and to bed at 9:00 PM.[/*]
+[*]The Restaurant Robot takes over the counter at 6:00 PM, when Bentley leaves for the Saloon, and stays until the day ends.[/*]
+[/list]
+[color=#66ccff][b]3.13.4 to 3.13.12[/b][/color]
+[list]
+[*]Moved: the restaurant now stands on the Bus Stop lawn, with a dirt path from the door to the road and the fence in front removed.[/*]
+[*]Fixed: the staff door tiles are solid, so you can't stand on the door. Tap or use the action button to enter.[/*]
+[*]Changed: Bentley's birthday is now Spring 12.[/*]
+[/list]
+[color=#66ccff][b]3.13.0 to 3.13.3[/b][/color]
+[list]
+[*]New: the Dessert Corner, with a kiosk and 7 desserts. Dessert chairs can be sat on.[/*]
+[*]Fixed: the Windex Swirl Cone now takes health like Windex. There is a separate config value for each.[/*]
+[*]Removed: the furniture shop and its pieces.[/*]
+[/list]
+[color=#66ccff][b]3.12.x[/b][/color]
+[list]
+[*]The side room became part of the restaurant map itself, with no loading screen.[/*]
+[/list]
+[color=#66ccff][b]3.11.x[/b][/color]
+[list]
+[*]New: the arcade room with Journey of the Prairie King and Junimo Kart.[/*]
+[*]Fixed: lighting in the dining room and the Restaurant Robot's daily start spot.[/*]
+[/list]
+[line]
+
+[size=5][b][color=#ff9933]Testing status and known limitations[/color][/b][/size]
+
+[list]
+[*]The latest version, including the Dessert Corner and the Bus Stop move, has been tested in game by the author and is up to date.[/*]
+[*]Not tested with Stardew Valley Expanded. It should be compatible, but this is unconfirmed.[/*]
+[*]Mods that edit the Bus Stop area may conflict with this mod.[/*]
+[*]Festival support ([b]EnableFestivals[/b] in the config) is experimental and off by default.[/*]
+[/list]
+[line]
+
+[center][size=6][b][color=#ff0000]DO NOT DRINK WINDEX![/color][/b][/size]
+[size=4][b][color=#ff0000]Windex is a fictional joke item. Real glass cleaner is poisonous. Never drink it.[/color][/b][/size][/center]
+
+[line]
+
+[size=5][b][color=#ff9933]Credits[/color][/b][/size]
+
+Made by [b][color=#ffcc33]Bentley Playz[/color][/b]. Special thanks to [b]Nick[/b] and [b]Ed[/b] for their support throughout development, and to everyone in the Stardew Valley community who has downloaded the mod, shared feedback, and supported it.

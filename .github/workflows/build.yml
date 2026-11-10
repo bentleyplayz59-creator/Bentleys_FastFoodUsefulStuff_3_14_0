@@ -1,0 +1,73 @@
+name: Build Bentley's Fast Food & Useful Stuff (complete mod)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Folder in this repository that holds Content/, Code/ and Kiosk/ (the player-install folder).
+  MOD_DIR: BentleyPlayz FastFoodUsefulStuff
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Official Pathoschild build environment: installs .NET and supplies the Stardew Valley / SMAPI
+      # reference assemblies (from StardewModders/mod-reference-assemblies). No game files needed.
+      - name: Set up SMAPI build environment
+        uses: Pathoschild/SMAPI-ModBuildWorkflow/add-build-environment@v1
+
+      - name: Check the two original Bentley DLLs are in the repository
+        run: |
+          test -f "$MOD_DIR/Code/BentleyPlayz.FastFoodUsefulStuff.Smapi.dll"      || { echo "::error::Missing original Code/BentleyPlayz.FastFoodUsefulStuff.Smapi.dll"; exit 1; }
+          test -f "$MOD_DIR/Code/BentleyPlayz.FastFoodUsefulStuff.BusStopGuard.dll" || { echo "::error::Missing original Code/BentleyPlayz.FastFoodUsefulStuff.BusStopGuard.dll"; exit 1; }
+
+      - name: Build kiosk DLL
+        run: dotnet build "$MOD_DIR/Kiosk/BentleyPlayz.FastFoodUsefulStuff.Kiosk.csproj" --configuration Release
+
+      - name: Prepare complete mod package
+        run: |
+          rm -rf build && mkdir -p "build/$MOD_DIR"
+          # Everything already in the mod folder: Content, Code (both original DLLs, untouched), Kiosk manifest.
+          rsync -a --exclude 'Kiosk/obj' --exclude 'Kiosk/bin' --exclude 'Kiosk/*.cs' --exclude 'Kiosk/*.csproj' "$MOD_DIR/" "build/$MOD_DIR/"
+          DLL=$(find "$MOD_DIR/Kiosk/bin" -name 'BentleyPlayz.FastFoodUsefulStuff.Kiosk.dll' | head -n 1)
+          test -n "$DLL" || { echo "::error::Kiosk DLL was not built"; exit 1; }
+          cp "$DLL" "build/$MOD_DIR/Kiosk/"
+
+      - name: Verify package
+        run: |
+          P="build/$MOD_DIR"
+          for f in Content/manifest.json Content/content.json Content/data/kiosk.json Content/assets/kiosk.png \
+                   Code/manifest.json Code/BentleyPlayz.FastFoodUsefulStuff.Smapi.dll Code/BentleyPlayz.FastFoodUsefulStuff.BusStopGuard.dll \
+                   Kiosk/manifest.json Kiosk/BentleyPlayz.FastFoodUsefulStuff.Kiosk.dll; do
+            test -f "$P/$f" || { echo "::error::Package is missing $f"; exit 1; }
+          done
+          # The original DLLs must be byte-identical to the repository copies.
+          cmp "$P/Code/BentleyPlayz.FastFoodUsefulStuff.Smapi.dll" "$MOD_DIR/Code/BentleyPlayz.FastFoodUsefulStuff.Smapi.dll"
+          cmp "$P/Code/BentleyPlayz.FastFoodUsefulStuff.BusStopGuard.dll" "$MOD_DIR/Code/BentleyPlayz.FastFoodUsefulStuff.BusStopGuard.dll"
+          find "$P" -type f | sort
+
+      - name: Create complete ZIP
+        run: |
+          cd build
+          zip -r BentleysFastFood_Complete.zip "$MOD_DIR"
+
+      # The complete installable mod (this is the one to download and install).
+      - name: Upload complete mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: BentleysFastFood-Complete
+          path: build/BentleysFastFood_Complete.zip
+          if-no-files-found: error
+
+      # Official action: uploads the kiosk-only ZIP that ModBuildConfig wrote to _releases/.
+      # Placed last so a problem here can never block the complete-mod artifact above.
+      - name: Upload release artifacts (kiosk part only)
+        uses: Pathoschild/SMAPI-ModBuildWorkflow/upload-release-artifacts@v1
